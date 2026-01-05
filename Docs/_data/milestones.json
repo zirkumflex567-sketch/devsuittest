@@ -1,0 +1,166 @@
+{
+  "version": "1.0",
+  "milestones": [
+    {
+      "id": "m1",
+      "name": "Setup & Prototyp",
+      "number": 1,
+      "duration": 2,
+      "status": "pending",
+      "blocker": null,
+      "progress": 0,
+      "objective": "Project structure ready, basic vehicle controllable, camera working",
+      "deliverables": [
+        "Unity 6 project created, URP configured",
+        "Project structure (Assembly Definitions, folders)",
+        "Zenject DI container setup",
+        "Scene structure: Bootstrap, MainMenu, Hub, Arena",
+        "Input System configured (WASD + Mouse)",
+        "Vehicle Model imported (Quaternius Hovercraft)",
+        "Vehicle Controller script (basic movement)",
+        "Camera Controller (third-person follow)",
+        "Reticle UI (simple crosshair)"
+      ],
+      "tasks": 7,
+      "completed_tasks": 0,
+      "notes": "Foundation milestone. All other milestones depend on this."
+    },
+    {
+      "id": "m2",
+      "name": "Horde & Combat",
+      "number": 2,
+      "duration": 3,
+      "status": "pending",
+      "blocker": "m1",
+      "progress": 0,
+      "objective": "Enemies spawn in waves, player can shoot, combat feels responsive",
+      "deliverables": [
+        "Horde Director system (wave spawning)",
+        "3 Enemy Types imported (Boar Grunt, Hyena Runner, Raven Swooper)",
+        "Enemy AI (simple Chase → Attack FSM)",
+        "Enemy Prefabs with LOD + Colliders",
+        "2 Weapon Types (Primary + Secondary)",
+        "Projectile pooling system",
+        "Weapon firing mechanics (damage, recoil)",
+        "Hit detection (raycast / projectile collision)",
+        "Enemy death + loot drop trigger",
+        "Horde spawning UI (wave count, timer)"
+      ],
+      "tasks": 10,
+      "completed_tasks": 0,
+      "notes": "Combat loop. Core gameplay loop emerges here."
+    },
+    {
+      "id": "m3",
+      "name": "Loot & Upgrades",
+      "number": 3,
+      "duration": 2,
+      "status": "pending",
+      "blocker": "m2",
+      "progress": 0,
+      "objective": "Loot drops, player can pick up, upgrades apply and change stats",
+      "deliverables": [
+        "Loot drop system (Scrap, Tech, Upgrades)",
+        "Loot pickup prefab with magnet radius",
+        "UI: Upgrade selection screen (show 3 choices)",
+        "Upgrade application logic (stat modifications)",
+        "HUD: Resource counter (Scrap/Tech/Health)",
+        "Upgrade data structure (ScriptableObjects)"
+      ],
+      "tasks": 7,
+      "completed_tasks": 0,
+      "notes": "Progression system. Roguelike-lite mechanic."
+    },
+    {
+      "id": "m4",
+      "name": "Hub & Save System",
+      "number": 4,
+      "duration": 2,
+      "status": "pending",
+      "blocker": "m3",
+      "progress": 0,
+      "objective": "Persistent meta-progression, shop functional, save/load works",
+      "deliverables": [
+        "Hub scene (minimal, shows vehicle + UI)",
+        "Shop UI (buy upgrades with Scrap/Tech)",
+        "Save system (JSON serialization)",
+        "Load system (restore meta progress)",
+        "Run summary screen (end of run)",
+        "Meta progression tracking (total Scrap/Tech)"
+      ],
+      "tasks": 7,
+      "completed_tasks": 0,
+      "notes": "Meta systems. Enables progression between runs."
+    },
+    {
+      "id": "m5",
+      "name": "Polish & Audio",
+      "number": 5,
+      "duration": 2,
+      "status": "pending",
+      "blocker": "m4",
+      "progress": 0,
+      "objective": "Game feels complete, SFX + Music added, UI polished",
+      "deliverables": [
+        "SFX integrated (weapon, hit, pickup, UI)",
+        "Background music looping",
+        "Volume sliders (Settings screen)",
+        "UI polish (colors, spacing, animations)",
+        "Game Over + Win screen",
+        "Pause menu functional",
+        "Localization DE + EN (all UI text)"
+      ],
+      "tasks": 9,
+      "completed_tasks": 0,
+      "notes": "Polish. WMA-MVP playable after this."
+    },
+    {
+      "id": "m6",
+      "name": "Local Coop (Optional)",
+      "number": 6,
+      "duration": 2,
+      "status": "pending",
+      "blocker": "m5",
+      "progress": 0,
+      "objective": "2 players can play simultaneously on same PC",
+      "deliverables": [
+        "2x Vehicle Controller instances",
+        "2x Camera setup (splitscreen left/right or shared)",
+        "2x Input handlers (separate gamepad/keyboard per player)",
+        "Horde scaling (+30% enemies with 2P)",
+        "Shared run state (combined resources, upgrades)"
+      ],
+      "tasks": 6,
+      "completed_tasks": 0,
+      "notes": "Optional but important for MVP. Can be skipped for earlier release."
+    },
+    {
+      "id": "m7",
+      "name": "QA & Release",
+      "number": 7,
+      "duration": 1,
+      "status": "pending",
+      "blocker": "m6",
+      "progress": 0,
+      "objective": "No critical bugs, game is playable from start to finish",
+      "deliverables": [
+        "Bug list (low priority: known issues)",
+        "Performance optimized (60 FPS target)",
+        "Credits screen complete",
+        "Build tested on target machine",
+        "Release build created"
+      ],
+      "tasks": 6,
+      "completed_tasks": 0,
+      "notes": "Final QA. WMA-MVP released."
+    }
+  ],
+  "summary": {
+    "total_milestones": 7,
+    "total_days": 14,
+    "total_tasks": 52,
+    "completed_tasks": 0,
+    "progress_percent": 0,
+    "critical_path": ["m1", "m2", "m3", "m4", "m5", "m7"]
+  }
+}
