@@ -10,9 +10,13 @@
 
 A **3D Horde Arena** game (survivors-like / brotato-style) in **Unity 6 URP**:
 
-- **Player:** Single vehicle (3rd-person), locally playable by 2 people simultaneously
+- **Player:** 2 Charaktere (Driver-Personas) + Vehicle-Auswahl, lokal zu zweit spielbar
 - **Enemies:** 6–8 low-poly humanoid mutant types (Boars, Hyenas, Ravens, etc.)
 - **Goal:** Survive waves, collect loot, upgrade, extract or die trying
+- **Pre-Run:** Wähle 2 aus 6 zufälligen Kopfgeldern (Schwierigkeit + Belohnung)
+- **Vehicles:** 4 Klassen (Motorrad, Quad, Jeep, Truck). WMA: Motorrad (Solo), Jeep (Coop)
+- **Boss:** Endboss mit ausweichbaren Fähigkeiten (3 Varianten)
+- **Weapons:** Fahrzeugmontiert, keine Handwaffen
 - **Feel:** Fast-paced, high-contrast, mobile-friendly low-poly aesthetic
 - **Duration:** 10–30 min per run
 - **Platforms:** PC (MVP), later Android/iOS
@@ -37,9 +41,9 @@ A **3D Horde Arena** game (survivors-like / brotato-style) in **Unity 6 URP**:
 ## 🏆 What You Get (Deliverables)
 
 ### **Immediate (Documentation)**
-- ✅ 17 detailed `.md` planning documents (1000s lines)
+- ✅ 19 detailed `.md` planning documents (1000s lines)
 - ✅ 3 `.json` data files (asset registry, milestones, prompts)
-- ✅ 52 implementation tasks across 7 milestones
+- ✅ 56 implementation tasks across 7 milestones
 - ✅ 40+ Cursor/Codex AI prompts (ready-to-copy)
 - ✅ Complete license audit (zero GPL, zero ND)
 - ✅ DevSuite web-app specification (dashboard for tracking)
@@ -71,7 +75,8 @@ A **3D Horde Arena** game (survivors-like / brotato-style) in **Unity 6 URP**:
 1. **Read This First:**  
    → `Docs/00_README.md` (orientation)  
    → `Docs/01_Vision_WMA.md` (game loop)  
-   → `Docs/02_MVP_Scope.md` (must/should/could)
+   → `Docs/02_MVP_Scope.md` (must/should/could)  
+   → `Docs/18_Characters_WMA.md` (characters + skill trees)
 
 2. **Setup Tech Stack:**  
    → `Docs/03_TechStack_Unity6_URP.md` (packages + project structure)  
@@ -82,7 +87,7 @@ A **3D Horde Arena** game (survivors-like / brotato-style) in **Unity 6 URP**:
    → Download: Quaternius packs, Kenney UI, SFX from Zapsplat/Freesound
 
 4. **Code M1–M7:**  
-   → `Docs/15_Milestones_Checklists.md` (7 milestones, 52 tasks)  
+   → `Docs/15_Milestones_Checklists.md` (7 milestones, 56 tasks)  
    → `Docs/16_Cursor_Codex_Runbooks.md` (copy-paste prompts into Codex)  
    → Follow Cursor workflow for each milestone
 
@@ -138,7 +143,7 @@ Bootstrap → GameManager (DI Container)
 
 ```
 C:\GAMEDEV\aber jetzt\
-├─ Docs/                          ← All 17 planning documents
+├─ Docs/                          ← All 19 planning documents
 │  ├─ 00_README.md
 │  ├─ 01_Vision_WMA.md
 │  ├─ 02_MVP_Scope.md
@@ -157,6 +162,8 @@ C:\GAMEDEV\aber jetzt\
 │  ├─ 15_Milestones_Checklists.md
 │  ├─ 16_Cursor_Codex_Runbooks.md
 │  ├─ 17_DevSuite_Spezifikation.md
+│  ├─ 18_Characters_WMA.md
+│  ├─ 19_Comparison_Tables.md
 │  └─ _data/
 │     ├─ assets.json              ← Asset registry
 │     ├─ milestones.json          ← Milestone definitions
