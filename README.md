@@ -26,7 +26,7 @@
 aber jetzt/
 ├─ EXECUTIVE_SUMMARY.md          ← You are here. Start with this.
 ├─ README.md                     ← Navigation (this file)
-├─ Docs/                         ← 17 detailed planning documents
+├─ Docs/                         ← 19 detailed planning documents
 │  ├─ 00_README.md               ← Doc index + reading order
 │  ├─ 01_Vision_WMA.md           ← Game loop, pillars, design
 │  ├─ 02_MVP_Scope.md            ← Must/Should/Could scope
@@ -42,9 +42,11 @@ aber jetzt/
 │  ├─ 12_AssetStack_FreeFirst.md ← Free assets + links + licenses
 │  ├─ 13_Licenses_Attribution.md ← Attribution ledger
 │  ├─ 14_KI_ReplacementPlan.md   ← AI asset generation prompts
-│  ├─ 15_Milestones_Checklists.md ← 52 tasks, 7 milestones
+│  ├─ 15_Milestones_Checklists.md ← 56 tasks, 7 milestones
 │  ├─ 16_Cursor_Codex_Runbooks.md ← Implementation prompts
 │  ├─ 17_DevSuite_Spezifikation.md ← Tracking web-app
+│  ├─ 18_Characters_WMA.md       ← Characters, skill trees, prompts
+│  ├─ 19_Comparison_Tables.md    ← Database-style tables
 │  └─ _data/
 │     ├─ assets.json             ← Asset registry (270 lines)
 │     └─ milestones.json         ← Milestone definitions (167 lines)
@@ -78,7 +80,7 @@ aber jetzt/
 
 ### **Path 3: Complete Mastery (6+ hours)**
 - All of Path 2 +
-- Every .md file from 05–17 in order
+- Every .md file from 05–19 in order
 - Every code example in detail
 
 ### **Path 4: Daily Workflow**
@@ -95,13 +97,19 @@ aber jetzt/
 | **Genre** | Horde Arena (Survivors-like / Brotato) |
 | **Engine** | Unity 6 + URP (Universal Render Pipeline) |
 | **Players** | 1–2 (Local Coop, same PC) |
+| **Playable Characters** | 2 Driver-Personas with skill trees |
+| **Vehicles (WMA)** | Motorcycle (solo) + Jeep (coop) |
 | **Perspective** | Third-Person Vehicle Camera |
 | **Gameplay Loop** | Drive + Shoot + Dodge + Loot + Upgrade |
+| **Boss** | Endboss mit ausweichbaren Fähigkeiten (3 Varianten) |
+| **Difficulty** | Endlos skalierend |
+| **Pre-Run** | Character + Vehicle select (4 Klassen), pick 2 of 6 bounties |
 | **Session Length** | 10–30 minutes |
 | **Target Platforms** | PC (MVP), later Android/iOS |
 | **Art Style** | Low-Poly, Stylized, Mobile-Friendly |
 | **Audio** | Music (you), SFX (free libraries) |
 | **Localization** | German + English |
+| **Weapons** | Vehicle-mounted only |
 | **Cost** | $0 (all free assets + frameworks) |
 
 ---
@@ -123,7 +131,7 @@ aber jetzt/
 6. [M6] Local Coop (2 days, optional)
 7. [M7] QA & Release (1+ days)
 
-**52 total tasks across all milestones.**  
+**56 total tasks across all milestones.**  
 See: [`Docs/15_Milestones_Checklists.md`](./Docs/15_Milestones_Checklists.md)
 
 ---
@@ -154,10 +162,10 @@ See: [`Docs/12_AssetStack_FreeFirst.md`](./Docs/12_AssetStack_FreeFirst.md)
 
 | Category | Count | Lines |
 |----------|-------|-------|
-| Markdown Docs | 17 files | ~5,000 |
+| Markdown Docs | 19 files | ~5,000 |
 | JSON Data Files | 2 files | ~400 |
 | Code Examples | 100+ snippets | ~2,000 |
-| Checklists | 52 tasks | ~300 |
+| Checklists | 56 tasks | ~300 |
 | Prompts | 40+ | ~600 |
 | **TOTAL** | **~60 files** | **~8,300 lines** |
 
@@ -190,6 +198,12 @@ Everything you need. No fluff. No assumptions.
 
 **"What's my UI layout?"**  
 → [`Docs/09_UI_UX.md`](./Docs/09_UI_UX.md)
+
+**"Who are the playable characters?"**  
+→ [`Docs/18_Characters_WMA.md`](./Docs/18_Characters_WMA.md)
+
+**"Database-like tables?"**  
+→ [`Docs/19_Comparison_Tables.md`](./Docs/19_Comparison_Tables.md)
 
 **"How do I save the game?"**  
 → [`Docs/10_Save_Meta.md`](./Docs/10_Save_Meta.md)
