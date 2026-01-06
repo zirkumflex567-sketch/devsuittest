@@ -1,5 +1,7 @@
 # 6️⃣ Horde Design: Enemy Roster & AI Behaviors
 
+**Spawn-Regel (global):** Alle Gegner können grundsätzlich **überall in der Arena** spawnen (keine festen Kanten-Spawns).
+
 ---
 
 ## 🧟 Complete Enemy Roster (WMA-MVP + Expansion)
@@ -122,7 +124,7 @@
 
 ---
 
-### **SPECIAL: Goldgoblin** (Rare Spawn, ~1:50 ratio)
+### **SPECIAL: Goldgoblin** (Rare Spawn, ~1:300 ratio)
 
 - **Visual:** Small goblin, shiny, coins visible on back, ~0.8m
 - **Behavior:** Flees from player always
@@ -132,7 +134,7 @@
 - **Loot:** 5x Tech + 10 Scrap + **Guaranteed Rare Upgrade**
 - **AI:** Runs away immediately on spawn, tries to reach arena edge
 - **Special:** No attack, but worth 5x normal rewards
-- **Spawn:** Every ~30–60 enemies killed, random chance
+- **Spawn:** Every ~300 enemies killed, random chance
 
 ---
 
@@ -275,7 +277,136 @@ public class EnemyAI : MonoBehaviour
 | Boar Titan | 80 | 2 | 12 | Elite Charge | 16+ | 10% |
 | Plague Spreader | 50 | 5 | 9 | Swarm Projectile | 12+ | 15% |
 | Apex Predator | 60 | 7 | 11 | Evasive | 16+ | 12% |
-| Goldgoblin | 5 | 10 | 0 | Flee | Random | <1% |
+| Goldgoblin | 5 | 10 | 0 | Flee | Random | <0.5% |
+
+---
+
+## 🧩 Prompt Suite Enemy Cards (ENEMY_DESIGN_PROMPT)
+
+**Boar Grunt**
+- Role: Chaser
+- HP: 20
+- Movement Speed: 5 m/s
+- Damage: 5
+- Special Ability: Knockback ram
+- Weakness: Kiting, slow effects
+- Loot Drop: 1 Scrap, 5% Tech
+
+**Hyena Runner**
+- Role: Chaser
+- HP: 10
+- Movement Speed: 8 m/s
+- Damage: 3
+- Special Ability: Zig-zag sprint
+- Weakness: Stun, freeze
+- Loot Drop: 1 Scrap
+
+**Raven Swooper**
+- Role: Disruptor (Flyer)
+- HP: 15
+- Movement Speed: 6 m/s (flight)
+- Damage: 4
+- Special Ability: Dive attack
+- Weakness: Predictable dive windows
+- Loot Drop: 1 Scrap, 10% Tech
+
+**Boar Brute**
+- Role: Tank
+- HP: 40
+- Movement Speed: 4 m/s
+- Damage: 8
+- Special Ability: Wind-up charge slam
+- Weakness: Telegraph window
+- Loot Drop: 2 Scrap, 25% Tech
+
+**Hyena Pack**
+- Role: Chaser (Group)
+- HP: 25 (total)
+- Movement Speed: 7 m/s
+- Damage: 6
+- Special Ability: Pack surround
+- Weakness: AoE damage
+- Loot Drop: 2 Scrap, 1 Tech
+
+**Venom Lurker**
+- Role: Ranged
+- HP: 30
+- Movement Speed: 3 m/s
+- Damage: 7
+- Special Ability: Toxic spit projectile
+- Weakness: Close-range pressure
+- Loot Drop: 2 Scrap, 2 Tech
+
+**Plague Spreader**
+- Role: Ranged
+- HP: 50
+- Movement Speed: 5 m/s
+- Damage: 9
+- Special Ability: Swarm spray
+- Weakness: Interrupts, stun
+- Loot Drop: 2 Tech, 10% Poison upgrade
+
+**Apex Predator**
+- Role: Elite Chaser
+- HP: 60
+- Movement Speed: 7 m/s
+- Damage: 11
+- Special Ability: Dodge + double slash
+- Weakness: Predictable dodge timing
+- Loot Drop: 3 Tech, guaranteed Rare
+
+**Goldgoblin**
+- Role: Flee
+- HP: 5
+- Movement Speed: 10 m/s
+- Damage: 0
+- Special Ability: Escape sprint
+- Weakness: Any hit
+- Loot Drop: 5x Tech, 10 Scrap, guaranteed Rare
+
+---
+
+## ⚙️ Reactive Enemies (ENEMY_DESIGN_REACTIVE_PROMPT)
+
+**Boar Brute**
+- Visual Identity: Heavy plate shoulders, spiked collar, thick tusks
+- Role: Tank
+- Special Mechanic: If charmed, breaks charm with a roar and gains +15% speed for 3s
+- Armor / Weak Points: Heavy front armor, weak rear
+- Death Effect: Short shockwave knockback
+
+**Venom Lurker**
+- Visual Identity: Toxic sacs, thin tail, green glow
+- Role: Ranged
+- Special Mechanic: Buff-heavy players trigger extra spit volley (cooldown 8s)
+- Armor / Weak Points: Exposed back sacs
+- Death Effect: Toxic puddle (2s)
+
+**Hyena Pack**
+- Visual Identity: Linked chain collar, small scavenger masks
+- Role: Chaser
+- Special Mechanic: Magnet/Drone control forces pack to spread for 2s
+- Armor / Weak Points: None, fragile units
+- Death Effect: Scatter burst (brief fear)
+
+---
+
+## 🛡️ Elite Variants (ELITE_ENEMY_PROMPT)
+
+**Elite Boar Brute**
+- Visual Description: Reinforced shoulder plates, hanging chains, glowing tusk tips
+- Armor Logic: Front armor reduces damage by 30%
+- Unique Ability: Double-charge with short pause
+
+**Elite Venom Lurker**
+- Visual Description: Toxic tank on back, green tube veins, mask visor
+- Armor Logic: Back tank is weak spot (takes +50% damage)
+- Unique Ability: Poison cloud on hit (1.5s)
+
+**Elite Apex Predator**
+- Visual Description: Carbon blades on arms, bright eye glow, spine plates
+- Armor Logic: Light armor on head, weak tail core
+- Unique Ability: Dash-through slash, leaves bleeding trail
 
 ---
 
@@ -287,7 +418,7 @@ public class EnemyAI : MonoBehaviour
 - **Loot:** 3x normal drops
 - **Behavior:** More aggressive, tighter pattern
 
-### **Goldgoblin (special 1:50 spawn)**
+### **Goldgoblin (special 1:300 spawn)**
 - Reward-focused, no combat threat
 - Unique visual (shiny, coins)
 - 5x loot drop

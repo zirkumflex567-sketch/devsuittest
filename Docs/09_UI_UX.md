@@ -25,6 +25,9 @@ Canvas (UI Root)
 Canvas (UI Root)
 ├─ RunSummary (if returning from Arena)
 ├─ MetaProgressDisplay (Total Scrap/Tech)
+├─ CharacterSelect (2 Driver-Personas)
+├─ VehicleSelect (Motorcycle / Quad / Jeep / Truck)
+├─ BountySelect (Pick 2 of 6)
 ├─ ShopUI
 │  ├─ ShopItem Cards (Upgrades for purchase)
 │  └─ PurchaseButtons
@@ -44,6 +47,7 @@ Canvas (UI Root)
 │  ❤️ 100/100      [====]                         │ ← Top-left (Health)
 │  Wave 5/15       5:43                           │ ← Top-center (Wave, Time)
 │                           🔫 ∞ / [==════]       │ ← Top-right (Ammo)
+│  Sig: 2/2                                        │ ← Right (Signature Uses)
 │                                                 │
 │  Scrap: 450       Tech: 12                      │ ← Bottom-right (Resources)
 │                                                 │
@@ -174,6 +178,20 @@ public class UpgradeCard : MonoBehaviour
 ```
 
 ---
+
+## 🎯 Pre-Run Auswahl (Charakter + Vehicle + Bounties)
+
+**Flow (Hub):**
+1. Charakter wählen (Portrait + Passive + Skillzweige)
+2. Vehicle wählen (4 Klassen: Motorrad, Quad, Jeep, Truck)
+   - WMA: Motorrad (Solo), Jeep (Coop)
+3. 6 zufällige Kopfgelder anzeigen → 2 auswählen
+4. Start Run
+
+**Bounty Card UI:**
+- Titel, Schwierigkeit (Easy/Medium/Hard/Brutal)
+- Modifiers (z.B. +Elite, +Ranged, -Heal)
+- Rewards (Scrap/Tech/Upgrade-Bonus)
 
 ## 🎯 Game Over Screen
 

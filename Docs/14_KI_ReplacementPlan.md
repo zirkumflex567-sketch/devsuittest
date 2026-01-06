@@ -111,7 +111,7 @@ Icon Style: Wasteland-tech, high-contrast, readable at 48x48
 Format: 256x256 PNG, transparent background
 
 Icons needed:
-- [WeaponType] (x5): Plasma Rifle, Shotgun, Sniper, etc.
+- [WeaponType] (x6): Plasma Repeater Turret, Scrap Shotgun Front Cannon, Arc Thrower Side Emitter, Junk Grenade Roof Launcher, Venom Sprayer Front Nozzle, Rail Beam Roof Cannon
 - [StatusEffect] (x4): Freeze (blue), Burn (orange), Poison (green), Stun (yellow)
 - [Resource] (x3): Scrap (metal), Tech (circuit), Health (cross)
 

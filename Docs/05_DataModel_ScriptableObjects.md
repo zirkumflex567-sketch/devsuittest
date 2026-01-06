@@ -75,6 +75,54 @@ public enum EnemyBehavior
 
 ---
 
+## 👑 Boss Data Model
+
+**File:** `Data/ScriptableObjects/Bosses/[BossVariant].asset`
+
+```csharp
+[CreateAssetMenu(menuName = "Game/Boss/BossData")]
+public class BossData : ScriptableObject
+{
+    [Header("Identity")]
+    public string bossId = "boss_ash_titan";
+    public string displayName = "Ash Titan";
+    public BossElement element = BossElement.Fire;
+    public GameObject prefab;
+
+    [Header("Stats")]
+    public int baseHealth = 1200;
+    public float moveSpeed = 3.5f;
+    public int baseDamage = 25;
+
+    [Header("Phases")]
+    public List<BossPhase> phases = new();
+
+    [Header("Telegraphing")]
+    public float telegraphTime = 1.2f; // seconds before attack
+}
+
+public enum BossElement { Fire, Poison, Chrome }
+
+[System.Serializable]
+public class BossPhase
+{
+    public string phaseName;
+    public float healthThreshold = 0.66f; // enter at HP %
+    public List<BossAttack> attacks = new();
+}
+
+[System.Serializable]
+public class BossAttack
+{
+    public string attackId;
+    public float cooldown;
+    public float damageMultiplier = 1f;
+    public float telegraphTime;
+}
+```
+
+---
+
 ## 🔫 Weapon Data Model
 
 **File:** `Data/ScriptableObjects/Weapons/[WeaponName].asset`
@@ -84,8 +132,9 @@ public enum EnemyBehavior
 public class WeaponData : ScriptableObject
 {
     [Header("Identity")]
-    public string weaponName = "Plasma Rifle";
+    public string weaponName = "Plasma Repeater Turret";
     public Sprite iconSprite;
+    public WeaponMount mount = WeaponMount.Roof;
     
     [Header("Fire")]
     public float fireRate = 10f;  // shots per second
@@ -110,6 +159,126 @@ public class WeaponData : ScriptableObject
     [Header("Upgradeable")]
     public float damageMultiplier = 1f;
     public float fireRateMultiplier = 1f;
+}
+
+public enum WeaponMount
+{
+    Front, Roof, Side, Rear
+}
+```
+
+---
+
+## 🧑‍🎤 Character Data Model
+
+**File:** `Data/ScriptableObjects/Characters/[CharacterName].asset`
+
+```csharp
+[CreateAssetMenu(menuName = "Game/Character/CharacterData")]
+public class CharacterData : ScriptableObject
+{
+    [Header("Identity")]
+    public string characterId = "rixa_chromlilie";
+    public string displayName = "Rixa";
+    public Sprite portrait;
+
+    [Header("Base Stats")]
+    public int baseHealth = 100;
+    public int baseArmor = 0;
+    public float moveSpeedMultiplier = 1f;
+    public float critChanceBonus = 0f;
+    public float lootMagnetBonus = 0f;
+
+    [Header("Signature")]
+    public AbilityData signatureAbility;
+    public int signatureUsesPerRun = 2;
+
+    [Header("Skill Tree")]
+    public SkillTreeData skillTree;
+}
+```
+
+**File:** `Data/ScriptableObjects/Characters/SkillTrees/[TreeName].asset`
+
+```csharp
+[CreateAssetMenu(menuName = "Game/Character/SkillTree")]
+public class SkillTreeData : ScriptableObject
+{
+    public string treeId;
+    public List<SkillBranch> branches = new();
+}
+
+[System.Serializable]
+public class SkillBranch
+{
+    public string branchName;
+    public List<SkillNode> nodes = new();
+}
+
+[System.Serializable]
+public class SkillNode
+{
+    public string nodeId;
+    public string displayName;
+    public string description;
+    public List<StatModifier> modifiers = new();
+}
+```
+
+---
+
+## 🏎️ Vehicle Data Model
+
+**File:** `Data/ScriptableObjects/Vehicles/[VehicleName].asset`
+
+```csharp
+[CreateAssetMenu(menuName = "Game/Vehicle/VehicleData")]
+public class VehicleData : ScriptableObject
+{
+    public string vehicleId = "motorcycle";
+    public string displayName = "Motorcycle";
+    public GameObject prefab;
+
+    [Header("Handling")]
+    public float maxSpeed = 26f;
+    public float acceleration = 110f;
+    public float turnRate = 1.2f;
+
+    [Header("Durability")]
+    public int baseHealth = 90;
+    public int baseArmor = 5;
+}
+```
+
+**WMA Defaults:** `motorcycle` (Solo) + `jeep` (Coop).  
+**All Classes:** `motorcycle`, `quad`, `jeep`, `truck`.
+
+---
+
+## 🎯 Bounty Data Model
+
+**File:** `Data/ScriptableObjects/Bounties/[BountyName].asset`
+
+```csharp
+[CreateAssetMenu(menuName = "Game/Bounty/BountyData")]
+public class BountyData : ScriptableObject
+{
+    public string bountyId;
+    public string title;
+    public BountyDifficulty difficulty;
+    public string description;
+    public List<RunModifier> modifiers = new();
+    public List<BountyReward> rewards = new();
+}
+
+public enum BountyDifficulty { Easy, Medium, Hard, Brutal }
+
+[System.Serializable]
+public class BountyReward
+{
+    public LootType type;
+    public int minAmount;
+    public int maxAmount;
 }
 ```
 
@@ -216,7 +385,7 @@ public class WaveData : ScriptableObject
     public bool includeElites = false;
     public float eliteSpawnChance = 0.05f;  // 5%
     public bool includeGoldgoblin = false;
-    public float goldgoblinChance = 0.02f;  // 2%
+    public float goldgoblinChance = 1f / 300f;  // ~0.33%
     
     [Header("Rewards")]
     public float lootDropMultiplier = 1f;
@@ -246,6 +415,12 @@ public class GameConfig : ScriptableObject
     public float playerBaseSpeed = 20f;
     public int playerBaseHealth = 100;
     public float playerBaseArmor = 0f;
+
+    [Header("Characters & Vehicles")]
+    public List<CharacterData> availableCharacters = new();
+    public List<VehicleData> availableVehicles = new();
+    public int bountiesOfferedPerRun = 6;
+    public int bountiesSelectablePerRun = 2;
     
     [Header("Combat")]
     public float projectilePoolSize = 100;
@@ -294,16 +469,21 @@ public class RunState
     public float elapsedTime;
     public int currentWaveNumber;
     public List<int> activeUpgradesIds = new();
-    
+
     [Header("Resources")]
     public int scrapCollected;
     public int techCollected;
-    
+
     [Header("Stats")]
     public int totalEnemiesKilled;
     public int totalDamageDealt;
     public int totalDamageTaken;
-    
+
+    [Header("Selections")]
+    public string selectedCharacterId;
+    public string selectedVehicleId;
+    public List<string> selectedBountyIds = new();
+
     [Header("Run Modifiers")]
     public bool extractionSpawned;
     public int playerCount = 1;  // 1 or 2

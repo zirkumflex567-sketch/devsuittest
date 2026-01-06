@@ -2,43 +2,265 @@
 
 ---
 
-## 🎯 WMA-MVP Weapon Roster (2–3 Types)
+## 🎯 Vehicle-Mounted Weapon Roster (6 Concepts)
 
-### **Weapon 1: Plasma Rifle** (Primary - Auto)
-- **Firing Mode:** Full auto
-- **Fire Rate:** 10 shots/second
-- **Damage:** 20 per hit
-- **Projectile Speed:** 50 m/s
-- **Range:** 100m (unlimited)
-- **Ammo:** Infinite (energy-based)
-- **Recoil:** Slight (2 pixels screen bounce)
-- **VFX:** Orange/cyan plasma bolt
-- **SFX:** High-pitched laser zap
-- **Unlock:** Available from start
+**WMA Rule:** All weapons are vehicle-mounted, improvised, and scrap-built. No handheld weapons.
 
-### **Weapon 2: Shotgun** (Secondary - Manual)
-- **Firing Mode:** Single shot, manual trigger
-- **Fire Rate:** 2 shots/second (0.5s cooldown)
-- **Damage:** 50 per pellet, 5 pellets = 250 total
-- **Projectile Count:** 5 pellets (spread pattern)
-- **Projectile Speed:** 40 m/s
-- **Range:** 30m (pellets spread over distance)
-- **Ammo:** 30 shots, regen 5/sec when not firing
-- **Recoil:** Strong (screen push back)
-- **VFX:** Red explosion on impact
-- **SFX:** Heavy boom
-- **Unlock:** Available from start
+### **Plasma Repeater Turret**
+**Weapon Overview**
+- Name: Plasma Repeater Turret
+- Mount Position: Roof
+- Weapon Class: Primary
+- Core Fantasy: A patched turret that never stops spitting hot plasma.
 
-### **Weapon 3 (Optional): Sniper/Beam** (Prestige - Manual)
-- **Firing Mode:** Hitscan (instant, no projectile)
-- **Fire Rate:** 1 shot/second (1s cooldown)
-- **Damage:** 100 per shot
-- **Range:** Unlimited (raycast through scene)
-- **Ammo:** 20 shots, slow regen (1/sec)
-- **Recoil:** Extreme (camera shake)
-- **VFX:** Blue beam + impact point
-- **SFX:** Deep laser pulse
-- **Unlock:** Unlock via meta progression (50 Tech)
+**Base Stats**
+- Fire Rate: 9 shots/sec
+- Damage: 18 per hit
+- Effective Range: Long (80m)
+- Area of Effect: None
+- Ammo / Overheat Logic: Infinite, builds heat after 4s (0.5s cooldown pause)
+
+**Special Mechanic**
+- While vehicle is moving above 60% speed, every 6th hit on same target deals +40% damage.
+
+**Synergies**
+- Upgrades: Fire Rate, Crit Chance
+- Weapon Synergy: Arc Thrower Side Emitter (clear pack, turret focuses elite)
+- Enemy Interaction: Good vs elites due to stacking bonus.
+
+**Mods (3)**
+- Capacitor Loop: +10% fire rate, -8% damage.
+- Punch-Through Coils: Shots pierce 1 target, -10% crit chance.
+- Welded Radiator: Heat buildup -20%, -5% move speed (added weight).
+
+**Lore Snippet**
+It started as a rooftop AC unit. Now it hums like a shrine and cooks anything in line. Drivers call it the \"roof kiln\" and trust it more than brakes.
+
+---
+
+### **Scrap Shotgun Front Cannon**
+**Weapon Overview**
+- Name: Scrap Shotgun Front Cannon
+- Mount Position: Front
+- Weapon Class: Secondary
+- Core Fantasy: A nose-mounted blast of bolted junk for point-blank clears.
+
+**Base Stats**
+- Fire Rate: 1.6 shots/sec (0.6s cooldown)
+- Damage: 7 pellets x 22 = 154 max
+- Effective Range: Short (18m)
+- Area of Effect: Small cone
+- Ammo / Overheat Logic: Limited (24 shells, regen 4/sec out of combat)
+
+**Special Mechanic**
+- Recoil pushes the vehicle back slightly (readable bump) and briefly slows steering.
+
+**Synergies**
+- Upgrades: AoE Size, Status Chance (Freeze/Burn)
+- Weapon Synergy: Junk Grenade Roof Launcher (blast then finish survivors)
+- Enemy Interaction: Strong vs packs and unarmored swarms.
+
+**Mods (3)**
+- Wide Choke: +20% cone size, -15% pellet damage.
+- Slug Swap: 1 slug at 90 damage, +30% range, loses stagger.
+- Scrapload: +2 pellets, +10% recoil (riskier at speed).
+
+**Lore Snippet**
+It fires whatever fits the pipe. Bolts, teeth, coins, and once a wedding ring. Nobody asks whose ring it was.
+
+---
+
+### **Arc Thrower Side Emitter**
+**Weapon Overview**
+- Name: Arc Thrower Side Emitter
+- Mount Position: Side
+- Weapon Class: Primary
+- Core Fantasy: Side-mounted coils that chain shocks through tight packs.
+
+**Base Stats**
+- Fire Rate: 3 shots/sec
+- Damage: 26 initial, 16 chained
+- Effective Range: Medium (35m)
+- Area of Effect: Chain 2 additional targets
+- Ammo / Overheat Logic: Regen battery (40 charges, regen 6/sec)
+
+**Special Mechanic**
+- Chains prefer targets on the vehicle's moving side (turning into crowds increases chains).
+
+**Synergies**
+- Upgrades: Status Chance (Shock/Slow), AoE Size
+- Weapon Synergy: Plasma Repeater Turret (strip packs, focus single)
+- Enemy Interaction: Excellent vs grouped enemies, weaker vs lone targets.
+
+**Mods (3)**
+- Forked Arc: +1 chain target, -10% damage.
+- Grounded Coils: Chain range +25%, -15% fire rate.
+- Static Bite: +10% crit chance, -20% battery regen.
+
+**Lore Snippet**
+The side coils were welded on after a generator accident. Now the sparks are on purpose, and nobody rides beside it unless they like their teeth chattering.
+
+---
+
+### **Junk Grenade Roof Launcher**
+**Weapon Overview**
+- Name: Junk Grenade Roof Launcher
+- Mount Position: Roof
+- Weapon Class: Secondary
+- Core Fantasy: A roof rack that lobs rattling scrap grenades into crowds.
+
+**Base Stats**
+- Fire Rate: 0.9 shots/sec (1.1s cooldown)
+- Damage: 110 impact, 60 splash
+- Effective Range: Medium (30m)
+- Area of Effect: 4m radius
+- Ammo / Overheat Logic: Limited (12 grenades, regen 1/sec)
+
+**Special Mechanic**
+- Grenades bounce once; timing depends on vehicle speed (faster = longer arc).
+
+**Synergies**
+- Upgrades: AoE Size, Status Chance (Burn)
+- Weapon Synergy: Scrap Shotgun Front Cannon (crowd soften, close finish)
+- Enemy Interaction: Strong vs crowds, soft vs fast dodgers.
+
+**Mods (3)**
+- Sticky Glue: Grenades stick to first target, -20% splash radius.
+- Scatter Can: +2 mini grenades, -30% damage each.
+- Hot Reload: +25% regen rate, -10% impact damage.
+
+**Lore Snippet**
+It is a roof rack with a bad attitude. The grenades are old cans packed with nails and regret. The fact that it still fires is a miracle.
+
+---
+
+### **Venom Sprayer Front Nozzle**
+**Weapon Overview**
+- Name: Venom Sprayer Front Nozzle
+- Mount Position: Front
+- Weapon Class: Primary
+- Core Fantasy: A pressure sprayer that melts armor with poison mist.
+
+**Base Stats**
+- Fire Rate: 12 ticks/sec
+- Damage: 6 per tick + 12 DPS poison
+- Effective Range: Short (12m)
+- Area of Effect: Narrow cone
+- Ammo / Overheat Logic: Fuel tank (100 units, regen 8/sec)
+
+**Special Mechanic**
+- Poison stacks up to 3; ramming during spray adds +1 stack (readable splatter).
+
+**Synergies**
+- Upgrades: Status Chance, Damage Over Time
+- Weapon Synergy: Rail Beam Roof Cannon (mark target, beam finish)
+- Enemy Interaction: Strong vs tanks/elites, weaker vs flyers.
+
+**Mods (3)**
+- Wide Nozzle: +25% cone, -10% poison DPS.
+- Corrosive Mix: +1 max poison stack, -15% base damage.
+- Pressure Burst: First 2s +20% damage, then -10% (timing risk).
+
+**Lore Snippet**
+It used to water crops. Now it waters graves. The smell lingers, so nobody parks too close.
+
+---
+
+### **Rail Beam Roof Cannon**
+**Weapon Overview**
+- Name: Rail Beam Roof Cannon
+- Mount Position: Roof
+- Weapon Class: Special
+- Core Fantasy: A welded rail cannon that cuts a straight line through chaos.
+
+**Base Stats**
+- Fire Rate: 0.6 shots/sec (1.6s cooldown)
+- Damage: 220 per beam
+- Effective Range: Long (90m)
+- Area of Effect: Piercing line (1.5m width, 3 targets)
+- Ammo / Overheat Logic: Limited (8 shots, regen 0.5/sec)
+
+**Special Mechanic**
+- 0.4s charge wind-up; steering during charge widens aim drift.
+
+**Synergies**
+- Upgrades: Crit Damage, Fire Rate (cooldown), AoE Line Width
+- Weapon Synergy: Venom Sprayer Front Nozzle (marking targets for beam)
+- Enemy Interaction: Great vs elites and lined-up packs.
+
+**Mods (3)**
+- Rapid Capacitor: -20% cooldown, -15% damage.
+- Overcharge Prism: +35% damage, +0.2s charge time.
+- Wide Beam: +0.5m width, -1 pierce count.
+
+**Lore Snippet**
+It started as a crane rail and a dare. The recoil bends axles, but the beam makes problems disappear in a single, clean line. Clean is rare out here.
+
+---
+
+## 🧪 Run-Buff Übersicht (WMA, grob)
+
+**Offense**
+- Damage +X%
+- Fire Rate +X%
+- Crit Chance +X% / Crit Damage +X%
+- Projectile Count +1 (Scrap Shotgun style)
+- Status Chance +X% (Freeze/Burn/Poison)
+
+**Defense**
+- Max HP +X
+- Armor +X
+- HP Regen +X/s
+- Temporary Shield (on pickup / on kill)
+
+**Mobility**
+- Move Speed +X%
+- Turn Rate +X%
+- Dash Cooldown -X% (falls Dash vorhanden)
+
+**Utility**
+- Loot Magnet Radius +X
+- Scrap/Tech Gain +X%
+- Pickup Vacuum Speed +X%
+
+**Signature / Skill**
+- Signature Cooldown -X%
+- Signature Uses +1 (selten, capped)
+- Skill Tree Node Bonus (branch-spezifisch)
+
+---
+
+## 🧩 Beispiel-Upgrades (UPGRADE_PROMPT)
+
+**Upgrade Name:** Rapid Fire
+**Effect:** Feuerrate erhoehen
+**Numeric Values:** +15% Fire Rate
+**Synergies:** Secco-Toast, Scrap Shotgun Front Cannon
+
+**Upgrade Name:** Armor Plating
+**Effect:** Ruestung erhoehen
+**Numeric Values:** +10 Armor
+**Synergies:** Marek Bollwerk
+
+**Upgrade Name:** Magnet Core
+**Effect:** Pickup Radius groesser
+**Numeric Values:** +20% Pickup Radius
+**Synergies:** Schrottkern, Loot-Magnet
+
+**Upgrade Name:** Critical Bloom
+**Effect:** Crit Chance erhoehen
+**Numeric Values:** +6% Crit Chance
+**Synergies:** Chrom-Overclock
+
+**Upgrade Name:** Frost Bite
+**Effect:** Freeze Chance erhoehen
+**Numeric Values:** +12% Freeze Chance
+**Synergies:** Kiting, Boss-Dodge windows
+
+**Upgrade Name:** Shock Burst
+**Effect:** AoE auf Kill
+**Numeric Values:** 20% Weapon Damage im 3m Radius
+**Synergies:** Glanzkoller, AoE Builds
 
 ---
 
@@ -98,9 +320,10 @@ public class PoisonEffect : StatusEffect
 public class WeaponData : ScriptableObject
 {
     [Header("Identity")]
-    public string weaponName = "Plasma Rifle";
+    public string weaponName = "Plasma Repeater Turret";
     public Sprite weaponIcon;
     public int weaponId = 0;
+    public WeaponMount mount = WeaponMount.Roof;
     
     [Header("Firing")]
     public float fireRate = 10f;            // shots per second
@@ -143,6 +366,7 @@ public class WeaponData : ScriptableObject
 }
 
 public enum FireModeType { FullAuto, SingleShot, BurstFire, Hitscan }
+public enum WeaponMount { Front, Roof, Side, Rear }
 ```
 
 ---
@@ -160,7 +384,7 @@ public enum WeaponUpgradeType
     ProjectileSpeed,    // +20% projectile speed
     AmmoCapacity,       // +50 ammo (flat)
     StatusEffectChance, // +10% proc chance
-    ShotgunSpread,      // +5% pellet spread (more coverage)
+    ShotgunSpread,      // +5% pellet spread (Scrap Shotgun coverage)
 }
 
 // Application example:
@@ -364,13 +588,16 @@ public class SFXData
 
 ---
 
-## 📊 Weapon Balance Matrix (WMA-MVP)
+## 📊 Weapon Balance Matrix (WMA)
 
-| Weapon | Damage | Fire Rate | Range | Ammo | Difficulty |
-|--------|--------|-----------|-------|------|-----------|
-| **Plasma Rifle** | 20 | 10/sec | 100m | Infinite | Beginner |
-| **Shotgun** | 250 (5x50) | 2/sec | 30m | 30 | Intermediate |
-| **Sniper** (unlock) | 100 | 1/sec | ∞ | 20 | Advanced |
+| Weapon | Damage | Fire Rate / CD | Range | Ammo | Role |
+|--------|--------|----------------|-------|------|------|
+| **Plasma Repeater Turret** | 18 | 9/sec | 80m | Infinite (heat) | Sustained |
+| **Scrap Shotgun Front Cannon** | 154 max | 1.6/sec | 18m | 24 (regen) | Burst |
+| **Arc Thrower Side Emitter** | 26 + chain | 3/sec | 35m | 40 (regen) | Chain |
+| **Junk Grenade Roof Launcher** | 110 + 60 | 0.9/sec | 30m | 12 (regen) | AoE |
+| **Venom Sprayer Front Nozzle** | 6 + DOT | 12 ticks/sec | 12m | 100 (regen) | DOT |
+| **Rail Beam Roof Cannon** | 220 | 0.6/sec | 90m | 8 (regen) | Pierce |
 
 ---
 

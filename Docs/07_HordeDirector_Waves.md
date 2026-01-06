@@ -5,6 +5,7 @@
 ## 🌊 Wave Progression System
 
 **Goal:** Smooth difficulty ramp, player has time to adjust but never gets bored.
+**Endless:** Schwierigkeit skaliert nach Wave 15 weiter (kein Hard-Cap).
 
 ### **Wave Structure**
 
@@ -43,6 +44,43 @@ public class Wave
 
 ---
 
+## 👑 Endboss (WMA)
+
+- **Spawn:** Nach der Extraction-Phase (kurz nach 15 Min) oder als Trigger vor Win
+- **Telegraph:** Klare Vorwarnung pro Fähigkeit (Audio + VFX)
+- **Dodge-Fokus:** Fähigkeiten sind ausweichbar (Dash/Steering)
+- **Ziel:** Skill-Test, nicht Bullet-Sponging
+
+---
+
+## 👹 End Boss Variants (END_BOSS_PROMPT)
+
+**Boss Variant Theme:** Fire
+Boss Name: Ash-Titan
+Visual Skin Description: Glowing cracks, ember plates, smoke vents (stylized, no realistic fire)
+Arena Presence: Large, stomping, slow turns
+Phase Mechanics: Phase 1 ground slams, Phase 2 flame arcs, Phase 3 burn aura
+Signature Attacks: Ember ring pulse, forward flame sweep, ground fissure
+Weakness: Stun windows after slam
+
+**Boss Variant Theme:** Poison
+Boss Name: Mire-King
+Visual Skin Description: Toxic sacs, green haze, bone mask, dripping tubes
+Arena Presence: Medium speed, wide strafes
+Phase Mechanics: Phase 1 spit volleys, Phase 2 poison pools, Phase 3 summon adds
+Signature Attacks: Triple spit fan, poison puddle trail, toxic burst
+Weakness: Back sacs pop for extra damage
+
+**Boss Variant Theme:** Chrome
+Boss Name: Chrome Jugger
+Visual Skin Description: Mirror plates, chrome cables, neon seams
+Arena Presence: Fast dashes, sharp pivots
+Phase Mechanics: Phase 1 dash strikes, Phase 2 reflect shield, Phase 3 shock pulses
+Signature Attacks: Dash line slash, reflect bubble, radial shock
+Weakness: Shield drops after 2 hits from behind
+
+---
+
 ## 🎲 Spawn Rules (Data-Driven)
 
 ```csharp
@@ -58,6 +96,8 @@ public class EnemySpawnRule
     public float difficulty = 1.0f;           // Wave-local multiplier
 }
 ```
+
+**Spawn-Positions:** Gegner können überall innerhalb der Arena-Volume spawnen (nicht nur am Rand).
 
 ---
 
@@ -125,8 +165,8 @@ public bool TrySpawnElite(int wave)
 ```csharp
 public bool TrySpawnGoldgoblin(int totalEnemiesKilled)
 {
-    // ~1 Goldgoblin per 50 enemies
-    float chance = 1f / 50f;  // 2%
+    // ~1 Goldgoblin per 300 enemies
+    float chance = 1f / 300f;  // ~0.33%
     
     // Boost chance if player is doing well (hasn't died, high score)
     if (playerStats.timeAlive > 600f)  // 10+ min
@@ -135,17 +175,11 @@ public bool TrySpawnGoldgoblin(int totalEnemiesKilled)
     return Random.value < chance;
 }
 
-// Spawn location: Random arena edge, facing inward
+// Spawn location: Random position inside arena
 public Vector3 GetGoldgoblinSpawnPos()
 {
-    float angle = Random.Range(0f, 360f);
-    Vector3 edge = arenaCenter + new Vector3(
-        Mathf.Cos(angle * Mathf.Deg2Rad),
-        0,
-        Mathf.Sin(angle * Mathf.Deg2Rad)
-    ) * 50f;
-    
-    return edge;
+    Vector2 circle = Random.insideUnitCircle * arenaRadius;
+    return arenaCenter + new Vector3(circle.x, 0f, circle.y);
 }
 ```
 

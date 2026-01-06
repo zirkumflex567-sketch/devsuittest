@@ -75,10 +75,11 @@ M7: QA & Release              [Days 14+]   → Bug fixes, final checks
 - [ ] Hit detection (raycast / projectile collision)
 - [ ] Enemy death + loot drop trigger
 - [ ] Horde spawning UI (wave count, timer)
+- [ ] Endboss prototype + telegraphed dodge attacks
 
 ### **Subtasks**
 - [ ] M2.1: Implement HordeDirector class + WaveManager
-- [ ] M2.2: Create enemy spawn points (8 around arena)
+- [ ] M2.2: Create spawn volume (random positions anywhere in arena)
 - [ ] M2.3: Import 3 monster models, create materials
 - [ ] M2.4: Implement EnemyAI (State Machine)
 - [ ] M2.5: Implement EnemyDamageReceiver interface
@@ -87,6 +88,7 @@ M7: QA & Release              [Days 14+]   → Bug fixes, final checks
 - [ ] M2.8: Setup hit detection (raycast / collider)
 - [ ] M2.9: Create HUD canvas, show wave info
 - [ ] M2.10: Test wave progression + enemy behaviors
+- [ ] M2.11: Implement Endboss (3 Varianten) + Telegraphs
 
 ### **QA Checklist**
 - [ ] Enemies spawn every 2–3 seconds in wave
@@ -99,6 +101,7 @@ M7: QA & Release              [Days 14+]   → Bug fixes, final checks
 - [ ] Enemy death triggers loot drop
 - [ ] HUD shows current wave + wave timer
 - [ ] No major performance issues (60+ FPS with 30 enemies)
+- [ ] Endboss spawns and attacks are dodgeable
 
 ### **Estimated Time:** 3 Days
 ### **Blocker:** M1
@@ -149,6 +152,9 @@ M7: QA & Release              [Days 14+]   → Bug fixes, final checks
 
 ### **Deliverables**
 - [ ] Hub scene (minimal, shows vehicle + UI)
+- [ ] Character select (2 Driver-Personas)
+- [ ] Vehicle select (Motorcycle / Quad / Jeep / Truck)
+- [ ] Bounty select (Pick 2 of 6)
 - [ ] Shop UI (buy upgrades with Scrap/Tech)
 - [ ] Save system (JSON serialization)
 - [ ] Load system (restore meta progress)
@@ -157,6 +163,9 @@ M7: QA & Release              [Days 14+]   → Bug fixes, final checks
 
 ### **Subtasks**
 - [ ] M4.1: Create Hub scene layout
+- [ ] M4.1a: CharacterSelect UI + data binding
+- [ ] M4.1b: VehicleSelect UI + data binding
+- [ ] M4.1c: BountySelect UI (6 random → pick 2)
 - [ ] M4.2: Implement SaveSystem (JSON writer/reader)
 - [ ] M4.3: Create MetaProgressManager (persistent data)
 - [ ] M4.4: Implement Shop UI + purchase logic
@@ -166,6 +175,9 @@ M7: QA & Release              [Days 14+]   → Bug fixes, final checks
 
 ### **QA Checklist**
 - [ ] Hub scene loads without errors
+- [ ] Character selection persists into run
+- [ ] Vehicle selection persists into run
+- [ ] Bounty selection applies modifiers
 - [ ] Shop shows available upgrades
 - [ ] Player can buy upgrade with Scrap
 - [ ] Game Over screen shows run summary

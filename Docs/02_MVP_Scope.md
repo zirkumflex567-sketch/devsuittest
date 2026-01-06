@@ -6,13 +6,18 @@
 
 ### **Gameplay Core**
 - [ ] 1 Arena (Scrapyard/Wasteland) mit Terrain Variations
-- [ ] Player Vehicle (Basic, drivenbar)
+- [ ] 2 spielbare Charaktere (Driver-Personas) mit Skillbäumen (3 Zweige)
+- [ ] Vehicle-Select: 4 Klassen (Motorrad, Quad, Jeep, Truck)
+- [ ] WMA-Restriktion: Motorrad (Solo) + Jeep (Coop)
 - [ ] Third-Person Camera hinter Vehicle mit Aim-Reticle
 - [ ] 6–8 Monster-Types (Low-Poly, Horde-ready)
 - [ ] Horde Spawner mit Wave System (Skalierung über Zeit)
 - [ ] 2–3 Weapon Types (Auto Primary, Manual Special min. 1x)
+- [ ] Alle Waffen sind fahrzeugmontiert (keine Handwaffen)
 - [ ] Loot Drops (Scrap, Tech, Run-Upgrades)
+- [ ] Pre-Run: 2 aus 6 zufälligen Kopfgeldern wählen (Schwierigkeit + Belohnung)
 - [ ] Extraction Mechanic (nach ~15 Min spawn Extraction Point)
+- [ ] Endboss mit ausweichbaren Fähigkeiten (3 Varianten, WMA)
 - [ ] Game Over / Win Condition
 - [ ] **Local Coop 2-Player** (Splitscreen oder Shared Cam, TBD)
 

@@ -19,6 +19,24 @@
 
 ---
 
+## 👤 Character & Bounty UI
+
+| Key | Deutsch | English |
+|-----|---------|---------|
+| `UI_CharacterSelect_Title` | CHARAKTER WÄHLEN | SELECT CHARACTER |
+| `UI_CharacterSelect_Confirm` | CHARAKTER BESTÄTIGEN | CONFIRM CHARACTER |
+| `UI_VehicleSelect_Title` | FAHRZEUG WÄHLEN | SELECT VEHICLE |
+| `UI_BountySelect_Title` | KOPFGELDER WÄHLEN | SELECT BOUNTIES |
+| `UI_BountySelect_PickTwo` | Wähle 2 aus 6 | Pick 2 of 6 |
+| `UI_Bounty_Difficulty_Easy` | Leicht | Easy |
+| `UI_Bounty_Difficulty_Medium` | Mittel | Medium |
+| `UI_Bounty_Difficulty_Hard` | Schwer | Hard |
+| `UI_Bounty_Difficulty_Brutal` | Brutal | Brutal |
+| `UI_Bounty_Rewards` | Belohnungen | Rewards |
+| `UI_Bounty_Modifiers` | Modifikatoren | Modifiers |
+
+---
+
 ## 🎮 In-Game HUD Strings
 
 | Key | Deutsch | English |
@@ -72,11 +90,12 @@
 
 | Key | Deutsch | English |
 |-----|---------|---------|
-| `Weapon_PlasmaRifle` | Plasma-Gewehr | Plasma Rifle |
-| `Weapon_Shotgun` | Schrotflinte | Shotgun |
-| `Weapon_SniperRifle` | Scharfschützengewehr | Sniper Rifle |
-| `Weapon_LaserBeam` | Laserstrahl | Laser Beam |
-| `Weapon_FlameThrower` | Flammenwerfer | Flame Thrower |
+| `Weapon_PlasmaRepeater` | Plasma-Repeater-Turm | Plasma Repeater Turret |
+| `Weapon_ScrapShotgun` | Schrott-Schrotflinten-Kanone | Scrap Shotgun Front Cannon |
+| `Weapon_ArcThrower` | Lichtbogen-Seitenwerfer | Arc Thrower Side Emitter |
+| `Weapon_JunkGrenadeLauncher` | Schrott-Dachgranatwerfer | Junk Grenade Roof Launcher |
+| `Weapon_VenomSprayer` | Gift-Spruehduese | Venom Sprayer Front Nozzle |
+| `Weapon_RailBeamCannon` | Railstrahl-Dachkanone | Rail Beam Roof Cannon |
 
 ---
 
@@ -92,9 +111,39 @@
 | `Enemy_RavenSwooper` | Raben-Angreifer | Raven Swooper |
 | `Enemy_VenomLurker` | Gift-Lauerer | Venom Lurker |
 | `Enemy_PlagueSpreader` | Seuchen-Verbreiter | Plague Spreader |
-| `Enemy_ApexPredator` | Spitzenpräd ator | Apex Predator |
+| `Enemy_ApexPredator` | Spitzenprädator | Apex Predator |
 | `Enemy_Goldgoblin` | Gold-Goblin | Gold Goblin |
 | `Enemy_Elite` | ELITE | ELITE |
+
+---
+
+## 👑 Boss Names
+
+| Key | Deutsch | English |
+|-----|---------|---------|
+| `Boss_AshTitan` | Asche-Titan | Ash Titan |
+| `Boss_MireKing` | Morast-Koenig | Mire King |
+| `Boss_ChromeJugger` | Chrom-Jugger | Chrome Jugger |
+
+---
+
+## 🧍 Character Names
+
+| Key | Deutsch | English |
+|-----|---------|---------|
+| `Character_RixaChromlilie` | Rixa "Chromlilie" | Rixa "Chromlilie" |
+| `Character_MarekSchrottanker` | Marek "Schrottanker" | Marek "Scrap Anchor" |
+
+---
+
+## 🚗 Vehicle Names
+
+| Key | Deutsch | English |
+|-----|---------|---------|
+| `Vehicle_Motorcycle` | Motorrad | Motorcycle |
+| `Vehicle_Quad` | Quad | Quad |
+| `Vehicle_Jeep` | Jeep | Jeep |
+| `Vehicle_Truck` | Truck | Truck |
 
 ---
 
@@ -205,8 +254,8 @@
 
 **Example:**
 ```
-EN: "Plasma Rifle" (12 chars)
-DE: "Plasma-Gewehr" (13 chars, OK)
+EN: "Plasma Repeater Turret" (22 chars)
+DE: "Plasma-Repeater-Turm" (22 chars, OK)
 
 EN: "Extraction Successful" (20 chars)
 DE: "Erfolgreich Extrahiert" (22 chars, OK)

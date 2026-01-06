@@ -18,11 +18,16 @@ SaveGame (Root)
 │  │  ├─ UnlockedWeapons: List<string>
 │  │  ├─ UnlockedUpgrades: List<string>
 │  │  └─ UnlockedCosmetics: List<string>
+│  │  ├─ UnlockedCharacters: List<string>
+│  │  └─ UnlockedVehicles: List<string>
 │  └─ Stats
 │     ├─ RunsCompleted: int
 │     ├─ BestTime: float
 │     └─ TotalEnemiesKilled: long
 └─ LastRunData (Session summary)
+   ├─ SelectedCharacterId: string
+   ├─ SelectedVehicleId: string
+   ├─ SelectedBountyIds: List<string>
    ├─ RunDuration: float
    ├─ EnemiesKilled: int
    ├─ ResourcesEarned
@@ -65,6 +70,14 @@ SaveGame (Root)
     "unlockedCosmetics": [
       "vehicle_skin_neon_blue",
       "decal_hazard_stripe"
+    ],
+    "unlockedCharacters": [
+      "rixa_chromlilie",
+      "marek_schrottanker"
+    ],
+    "unlockedVehicles": [
+      "motorcycle",
+      "jeep"
     ]
   },
   "lastRun": {
@@ -77,6 +90,12 @@ SaveGame (Root)
     "upgradesUsed": [
       "rapid_fire",
       "armor_plating"
+    ],
+    "selectedCharacterId": "rixa_chromlilie",
+    "selectedVehicleId": "motorcycle",
+    "selectedBountyIds": [
+      "bounty_headhunter",
+      "bounty_toxic_rain"
     ],
     "wasExtracted": false,
     "playerCount": 1
@@ -118,6 +137,8 @@ public class MetaProgress
     public List<string> unlockedWeapons = new();
     public List<string> unlockedUpgrades = new();
     public List<string> unlockedCosmetics = new();
+    public List<string> unlockedCharacters = new();
+    public List<string> unlockedVehicles = new();
 }
 
 [System.Serializable]
@@ -130,6 +151,9 @@ public class RunData
     public int scrapEarned;
     public int techEarned;
     public List<string> upgradesUsed = new();
+    public string selectedCharacterId;
+    public string selectedVehicleId;
+    public List<string> selectedBountyIds = new();
     public bool wasExtracted;
     public int playerCount;
 }
@@ -197,6 +221,8 @@ public class SaveSystem : MonoBehaviour, IDisposable
                 totalTech = 0,
                 unlockedWeapons = new() { "plasma_rifle" },  // default
                 unlockedUpgrades = new(),
+                unlockedCharacters = new() { "rixa_chromlilie", "marek_schrottanker" },
+                unlockedVehicles = new() { "motorcycle", "jeep" },
             },
             lastRun = new RunData()
         };
@@ -390,9 +416,12 @@ public class RunSummaryManager : MonoBehaviour
         if (runData.durationSeconds > 600)  // 10 min+
             runData.scrapEarned += 25;  // Endurance bonus
         
-        // Add to meta
-        metaTracker.AddScrap(runData.scrapEarned);
-        metaTracker.AddTech(runData.techEarned);
+        // Loot loss on death: only bank resources if extracted
+        if (extracted)
+        {
+            metaTracker.AddScrap(runData.scrapEarned);
+            metaTracker.AddTech(runData.techEarned);
+        }
         metaTracker.RecordRunCompletion(runData);
         
         // Show summary

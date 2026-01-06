@@ -18,6 +18,11 @@
 │  ├─ VehicleStats (Health, Armor, Speed)
 │  └─ VehicleDamageReceiver
 │
+├─ Character System
+│  ├─ CharacterSelect (Pre-Run)
+│  ├─ CharacterStats (Traits, Passives)
+│  └─ SkillTreeRuntime (3-Branch Tree)
+│
 ├─ Combat System
 │  ├─ WeaponController (Primary + Secondary)
 │  ├─ Projectile Manager (Pooling)
@@ -26,7 +31,7 @@
 │
 ├─ Horde Director (Spawning, Waves, Difficulty)
 │  ├─ WaveManager (Current Wave Logic)
-│  ├─ SpawnerController (Enemy Spawn Points)
+│  ├─ SpawnerController (Enemy Spawn Volumes)
 │  └─ DifficultyScaler (Wave-based tuning)
 │
 ├─ Enemy System
@@ -44,6 +49,11 @@
 │  ├─ RunUpgradeManager (Current session upgrades)
 │  ├─ UpgradeSelectionUI
 │  └─ UpgradeApplier (Apply stats to player)
+│
+├─ Bounty System
+│  ├─ BountyDeck (6 random bounties)
+│  ├─ BountySelectionUI (Pick 2)
+│  └─ BountyModifierApplier (Difficulty + Rewards)
 │
 ├─ Meta / Save System
 │  ├─ MetaProgressManager (Persistent resources)
@@ -165,7 +175,34 @@ public class VehicleController : MonoBehaviour
 
 ---
 
-### **2. Combat System**
+### **2. Character System**
+
+**Components:**
+- `CharacterSelect`: Pre-Run Auswahl (2 Characters)
+- `CharacterStats`: Passives, Startwerte, Modifiers
+- `SkillTreeRuntime`: 3-Zweig-Tree, Run-Upgrades als Nodes
+- `CharacterAbility`: Spezialfähigkeit (max. 2x pro Run)
+
+**Behavior:**
+```csharp
+[CreateAssetMenu(menuName = "Game/Character/CharacterData")]
+public class CharacterData : ScriptableObject
+{
+    public string characterId;
+    public string displayName;
+    public int baseHealth;
+    public float moveSpeedMultiplier = 1f;
+    public int baseArmor;
+    public float critChanceBonus;
+    public string passiveId;
+    public AbilityData signatureAbility;
+    public SkillTreeData skillTree;
+}
+```
+
+---
+
+### **3. Combat System**
 
 **Components:**
 - `WeaponController`: Manages Primary + Secondary
@@ -211,12 +248,12 @@ public class WeaponController : MonoBehaviour
 
 ---
 
-### **3. Horde Director & Spawning**
+### **4. Horde Director & Spawning**
 
 **Components:**
 - `HordeDirector`: Master spawner, wave logic
 - `WaveManager`: Current wave state + difficulty
-- `SpawnerNode`: Individual spawn points (8 around arena)
+- `SpawnerVolume`: Spawnable area (random positions anywhere)
 
 **Wave Definition (ScriptableObject):**
 ```csharp
@@ -257,7 +294,7 @@ public class HordeDirector : MonoBehaviour
 
 ---
 
-### **4. Enemy AI (Simple State Machine)**
+### **5. Enemy AI (Simple State Machine)**
 
 **States:** Chase, Attack (Melee), RangedAttack, Retreat, Idle
 
@@ -304,7 +341,7 @@ public class EnemyAI : MonoBehaviour
 
 ---
 
-### **5. Loot System**
+### **6. Loot System**
 
 **Loot Drop:**
 ```csharp
@@ -352,7 +389,7 @@ public class LootPickup : MonoBehaviour
 
 ---
 
-### **6. Upgrade System (Run-local)**
+### **7. Upgrade System (Run-local)**
 
 **Upgrade Data:**
 ```csharp
@@ -398,7 +435,39 @@ public class UpgradeApplier : MonoBehaviour
 
 ---
 
-### **7. Save/Meta System**
+### **8. Bounty System**
+
+**Bounty Deck + Selection:**
+```csharp
+[CreateAssetMenu(menuName = "Game/Bounty/BountyData")]
+public class BountyData : ScriptableObject
+{
+    public string bountyId;
+    public string title;
+    public BountyDifficulty difficulty;
+    public string description;
+    public List<RunModifier> modifiers;
+    public List<BountyReward> rewards;
+}
+
+public enum BountyDifficulty { Easy, Medium, Hard, Brutal }
+```
+
+**Runtime Apply:**
+```csharp
+public class BountyModifierApplier : MonoBehaviour
+{
+    public void ApplyBounties(List<BountyData> selected)
+    {
+        foreach (var bounty in selected)
+            ApplyModifiers(bounty.modifiers);
+    }
+}
+```
+
+---
+
+### **9. Save/Meta System**
 
 **On Run End:**
 ```csharp

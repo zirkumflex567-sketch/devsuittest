@@ -24,15 +24,17 @@ Für **tiefe Planung:**
 9. **08_Weapons_StatusEffects.md** (Combat Loop)
 10. **09_UI_UX.md** (HUD, Screens, Localization)
 11. **10_Save_Meta.md** (Progression, Run Data)
+12. **18_Characters_WMA.md** (Charaktere, Skillbäume, Prompts)
+13. **19_Comparison_Tables.md** (Database-Tabellen)
 
 Für **Asset & Production:**
-12. **12_AssetStack_FreeFirst.md** (Mit Tabellen + Links)
-13. **13_Licenses_Attribution.md** (Ledger für alle Assets)
-14. **14_KI_ReplacementPlan.md** (KI-Prompts, QA-Checklists)
+14. **12_AssetStack_FreeFirst.md** (Mit Tabellen + Links)
+15. **13_Licenses_Attribution.md** (Ledger für alle Assets)
+16. **14_KI_ReplacementPlan.md** (KI-Prompts, QA-Checklists)
 
 Für **Execution:**
-15. **15_Milestones_Checklists.md** (Alle Tasks)
-16. **16_Cursor_Codex_Runbooks.md** (Pro Milestone: Prompts & Steps)
+17. **15_Milestones_Checklists.md** (Alle Tasks)
+18. **16_Cursor_Codex_Runbooks.md** (Pro Milestone: Prompts & Steps)
 
 ---
 
@@ -40,16 +42,22 @@ Für **Execution:**
 
 ✅ **Gameplay**
 - Single-Player + **Local Coop (2P, Split-Screen oder Shared View)** im MVP
+- Character-Select (2 Driver-Personas) + Vehicle-Select
+- Fahrzeuge: **Motorrad, Quad, Jeep, Truck** (balanciert)
+- WMA-Restriktion: **Motorrad (Solo)** und **Jeep (Coop)**
+- Vor dem Run: **2 von 6 zufälligen Kopfgeldern wählen** (Schwierigkeit + Belohnung)
 - Third-Person Fahrzeug-Perspektive mit Reticle/Aiming
 - Auto-Fire Primär-Waffe + manuelle Special-Waffe
 - 1 Arena + Horde-Spawner (Wellen-Skalierung)
 - Extraction Mechanic nach X Minuten
 - Loot-Drops, Upgrades (roguelike-lite)
+- Endboss mit ausweichbaren Fähigkeiten (3 Varianten)
 
 ✅ **Art Direction**
 - Low-Poly / Stylized / Mobile-freundlich
 - URP-basiert, optional Toon-Shader (free)
 - Monster-Theme: **Humanoide Mutationen** (Wildschweine, Hyänen, Geier etc.)
+- Charaktere im **Borderlands/Cel-Shaded** Look (siehe Docs/18)
 
 ✅ **Audio**
 - Musik: Du selbst
